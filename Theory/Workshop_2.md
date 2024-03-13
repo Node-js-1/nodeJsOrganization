@@ -163,8 +163,9 @@ Why It's Important
 
 Understanding the Event Loop is crucial for writing efficient Node.js applications. It helps in avoiding performance issues like blocking the loop and understanding asynchronous programming patterns. 
 
+## slide #6 picture
 
-## slide #7 
+## slide #7
 
 Timers Phase
 
