@@ -30,7 +30,7 @@
 // const readable = fs.createReadStream('data/input.txt');
 // const writable = fs.createWriteStream('data/output.txt');
 
-// Handle the 'data' Event: - ვმართავთ მონაცემებს, უნდა მოვუსმინოთ data-ს და end -ს
+// Handle the 'data' Event: - ვმართავთ მონაცემებს, უნდა მოვუსმინოთ data-ს და end -ს, ერთი ფაილიდან ვიღებთ მონაცემს, ვწერთ მეორეში
 
 // Listen to the 'data' event on the readable stream.
 // Write each data chunk to the writable stream.
