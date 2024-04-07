@@ -1,0 +1,90 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        async function addbook(event){
+            event.preventDefault();
+
+            const title = document.getElementById('title').value
+            const autor = document.getElementById('autor').value
+
+            await fetch('/add-book', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'aplication/json'
+                },
+                body: JSON.stringify({title, autor})
+            })
+
+            document.getElementById('addBookForm').reset()
+            fetchBooks()
+        }
+    </script>
+</head>
+<body>
+    <h1>Welcome to my books library</h1>
+    <form id="addbook" action="/" method="post">
+        <input type="text" id="autor" placeholder="enter autor"/>
+        <input type="text" id="title" placeholder="enter title"/>
+        <button type="submit">add new book</button>
+    </form>
+
+    <div id="booklist"></div>
+
+</body>
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <script> 
+    
+    async function addBook(event) {
+        event.preventDefault(); 
+        const title = document.getElementById('title').value;
+        const author = document.getElementById('author').value;
+
+
+        await fetch('/add-book', {
+            method:'POST',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body:JSON.stringify({title,author})
+        });
+        
+        document.getElementById('addBookForm').reset();
+        fetchBooks();
+
+    }
+    
+    async function fetchBooks () {
+        const response = await fetch('/books');
+        const books = await resposne.json();
+        const list = books.map (book =>'<li>${book.title} by ${book.author}</li>').join('')
+        document.getElementById('booksList').innerHTML = '<ul>${list}</ul>';
+    }
+
+    document.getElementById('addBookForm').addEventListener('submit',addBook);
+    window.onload = fetchBooks;
+    
+    </script>
+</head>
+<body>
+    <form id="addBookForm">
+   <input type="text" id="title"  placeholder="Title" required>
+   <input type="text" id="author"  placeholder="Author" required>
+   <button type="submit">Add Book</button>
+    </form>
+    <div id="booksList"> </div>
+</body>
+</html>
