@@ -13,6 +13,5 @@ INSERT INTO Students (ID, Name, Age, Score) VALUES (3, 'Giorgi', 18, 75);
 
 -- SQL Query to retrieve all data
 SELECT * FROM Students;
--- or 
-SELECT * FROM Students WHERE Score > 80;
+
  
