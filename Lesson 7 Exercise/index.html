@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My node js app</title>
+    <script>
+      async function addBooks(event) {
+        event.preventDefault();
+        const title = document.getElementById("title").value;
+        const author = document.getElementById("author").value;
+
+        await fetch("/add-book", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, author }),
+        });
+
+        document.getElementById("addbook").reset();
+        fetchBooks();
+      }
+
+      async function fetchBooks() {
+        const response = await fetch("books");
+        const books = await response.json();
+        const list = books.map((book) =>
+          `<li>${book.title} by ${book.author}</li>`.join("")
+        );
+        document.getElementById("booklist").innerHTML = `<ul>${list}</ul>`;
+      }
+
+      window.onload = fetchBooks;
+    </script>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <form id="addbook">
+      <input type="text" id="title" placeholder="enter title" />
+      <input type="text" id="author" placeholder="enter author" />
+      <button type="submit" onsubmit="addBooks">add new book</button>
+    </form>
+
+    <div id="booklist"></div>
+  </body>
+</html>
