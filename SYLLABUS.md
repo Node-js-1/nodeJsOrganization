@@ -92,9 +92,7 @@ Welcome to our comprehensive Node.js course! This syllabus outlines a series of 
 - **Basics of Docker:** Introduction to containerization and Docker.
 - **Containerizing a Node.js Application:** Steps to build and run a Node.js app in a Docker container.
 
-### 23. Continuous Integration and Deployment
-- **CI/CD Concepts:** Overview of continuous integration and continuous deployment.
-- **Deployment Strategies:** Best practices for deploying Node.js applications.
+
 
 ## Course Structure
 This course is designed to be interactive and practical. Each topic will include lectures, coding exercises, and real-world project work to ensure comprehensive understanding and hands-on experience.
