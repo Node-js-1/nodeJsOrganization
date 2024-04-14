@@ -42,9 +42,9 @@ app.delete("/deleteBook/:id", async (req, res) => {
 app.put("/updateBook/:id", async (req, res) => {
   try {
     const result = await userModel.findByIdAndUpdate(req.params.id, {
-      name: "book5",
-      author: "someone5",
-      year: 2005,
+      name: "book3",
+      author: "someone3",
+      year: 2003,
     });
     if (!result) res.status(404).send("no book found with that ID");
     res.json(result);
