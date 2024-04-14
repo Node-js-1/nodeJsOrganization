@@ -46,7 +46,7 @@ app.put("/updateBook/:id", async (req, res) => {
       author: "someone5",
       year: 2005,
     });
-    if (!result) res.status(404).send("no book with that ID");
+    if (!result) res.status(404).send("no book found with that ID");
     res.json(result);
   } catch (error) {
     res.status(500).send(error.message);
